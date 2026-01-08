@@ -3,472 +3,446 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Techariel — Web Design Packages</title>
+  <title>Hamza Muhammad | TechAriel & Digital Jigawa</title>
 
-  <!-- Poppins font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root{
-      --bg: #111827;
-      --accent: #38bdf8;
-      --card: rgba(255,255,255,0.04);
-      --muted: rgba(255,255,255,0.65);
-      --glass: rgba(255,255,255,0.02);
+      --bg-dark: #020617;     /* Deepest Navy/Black */
+      --primary: #0ea5e9;     /* Sky Blue */
+      --cyber: #22d3ee;       /* Cyan */
+      --hacker: #10b981;      /* Matrix Green */
+      --glass-surface: rgba(15, 23, 42, 0.6);
+      --glass-border: rgba(56, 189, 248, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--bg);
-      color: #e6f2fb;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      font-family: "Outfit", sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.08), transparent 40%), 
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05), transparent 40%);
     }
 
-    /* Header */
-    header{
-      text-align:center;
-      padding:48px 20px 8px;
-      overflow:visible;
-    }
-    .site-title{
-      font-size:2.1rem;
-      font-weight:700;
-      color:var(--accent);
-      margin:0;
-      opacity:0;
-      transform: translateY(-16px);
-      animation: headerIn 700ms ease forwards 200ms;
-    }
-    .tagline{
-      margin:12px 0 0;
-      color:var(--muted);
-      font-weight:400;
-      font-size:1rem;
-      opacity:0;
-      transform: translateY(-8px);
-      animation: headerIn 700ms ease forwards 400ms;
-    }
-
-    @keyframes headerIn {
-      to { opacity:1; transform: translateY(0); }
+    /* Matrix/Cyber Grid Background */
+    .cyber-grid {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* Container */
-    .container{
-      max-width:1150px;
-      margin:28px auto;
-      padding:0 20px 80px;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
     }
 
-    /* Toggle */
-    .controls{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:12px;
-      margin-bottom:20px;
+    /* --- HERO SECTION --- */
+    header {
+      padding: 120px 20px 80px;
+      text-align: center;
     }
-    .toggle {
-      background:var(--glass);
-      padding:8px 12px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .toggle input[type="checkbox"]{width:20px; height:20px; cursor:pointer}
 
-    /* Pricing grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:20px;
-      align-items:start;
+    .status-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--hacker);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      margin-bottom: 25px;
+      animation: pulse 2s infinite;
     }
-    @media (max-width:980px){ .grid{ grid-template-columns: repeat(2, 1fr) } }
-    @media (max-width:640px){ .grid{ grid-template-columns: 1fr } }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      padding:20px;
-      box-shadow: 0 6px 22px rgba(2,6,23,0.6);
-      border:1px solid rgba(255,255,255,0.03);
-      transition: transform .28s ease, box-shadow .28s ease;
-      position:relative;
-      overflow:hidden;
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 15px;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .card:hover{
-      transform: translateY(-12px);
-      box-shadow: 0 18px 50px rgba(56,189,248,0.08);
+    
+    .role-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 30px;
+      opacity: 0.9;
     }
-    .card::after{
-      content: "";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      opacity:0;
-      transition: opacity .28s;
-      box-shadow: 0 0 40px var(--accent);
-      border-radius:14px;
-    }
-    .card:hover::after{ opacity:1 }
 
-    .card h3{ margin:0 0 8px; font-size:1.25rem; color:var(--accent) }
-    .price{
-      font-size:1.6rem;
-      font-weight:700;
-      margin:8px 0 12px;
-      color:#ffd; /* slight contrast for price */
+    /* Founder Badges */
+    .founder-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
     }
-    .features{ list-style:none; padding:0; margin:0 0 16px; color:var(--muted) }
-    .features li{ margin:8px 0; display:flex; gap:10px; align-items:center }
-    .small{ font-size:0.9rem; color:var(--muted) }
+    .f-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+    .f-badge:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); transform: translateY(-3px); }
+    .f-badge i { color: var(--cyber); }
 
-    /* Buy button */
-    .buy{
-      display:inline-block;
-      background: linear-gradient(90deg, var(--accent), #7dd3fc);
-      color:#071022;
-      padding:10px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow: 0 6px 18px rgba(56,189,248,0.12);
-      transition: transform .18s, box-shadow .18s;
+    .bio {
+      max-width: 750px;
+      margin: 0 auto 40px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 1.1rem;
     }
-    .buy:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(56,189,248,0.18) }
 
-    /* Extras */
-    .extras{
-      margin-top:28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
-      padding:18px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.03);
+    .btn-hero {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--cyber));
+      color: #020617;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
     }
-    .extras h4{ margin:6px 0 12px; color:var(--accent) }
-    .extras ul{ list-style:none; margin:0; padding:0; color:var(--muted) }
-    .extras li{ display:flex; justify-content:space-between; align-items:center; padding:10px 8px; border-bottom:1px dashed rgba(255,255,255,0.03) }
-    .extras li:last-child{ border-bottom: none }
-    .order-extra{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      color:var(--accent);
-      padding:8px 10px;
-      border-radius:8px;
-      font-weight:600;
-      text-decoration:none;
-      transition: background .18s, transform .12s;
-    }
-    .order-extra:hover{ background: rgba(56,189,248,0.06); transform:translateY(-3px) }
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(14, 165, 233, 0.5); }
 
-    /* Footer */
-    footer{
-      margin-top:36px;
-      padding:18px 20px;
-      text-align:center;
-      color:var(--accent);
-      font-weight:600;
+    /* --- SKILLS GRID (The "Console") --- */
+    .skills-section { margin-bottom: 80px; }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
     }
+
+    .skill-card {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--glass-border);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .skill-card:hover {
+      background: rgba(34, 211, 238, 0.1);
+      border-color: var(--cyber);
+      transform: translateY(-5px);
+    }
+    .skill-icon { font-size: 2rem; color: var(--text-muted); transition:0.3s; }
+    .skill-card:hover .skill-icon { color: var(--cyber); }
+    .skill-name { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+
+    /* --- SERVICES --- */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .line { height: 1px; flex: 1; background: var(--glass-border); }
+    .section-title { font-size: 1.8rem; color: var(--text-main); font-weight: 700; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+    .service-card:hover { border-color: var(--hacker); box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15); }
+    
+    .s-icon { 
+      width: 50px; height: 50px; 
+      background: rgba(255,255,255,0.05); 
+      border-radius: 10px; 
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--hacker);
+      margin-bottom: 20px;
+    }
+    .service-card h3 { margin: 0 0 10px; font-size: 1.25rem; }
+    .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+    /* --- PROJECTS --- */
+    .project-card {
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+    }
+    @media(max-width: 768px) { .project-card { grid-template-columns: 1fr; } }
+
+    .p-image {
+      min-height: 250px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .p-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(2,6,23,0), rgba(2,6,23,1));
+    }
+    @media(max-width: 768px) { .p-overlay { background: linear-gradient(to bottom, rgba(2,6,23,0), rgba(2,6,23,1)); } }
+
+    .p-details { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .p-tag { 
+      font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--cyber); 
+      letter-spacing:1px; margin-bottom:10px; text-transform:uppercase; 
+    }
+    .p-details h3 { margin: 0 0 15px; font-size: 1.8rem; }
+    .p-details p { color: var(--text-muted); margin-bottom: 25px; }
+    .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
+    .tech { 
+      background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 4px; 
+      font-size: 0.8rem; color: var(--text-main); border: 1px solid rgba(255,255,255,0.1); 
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding-top: 50px;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-muted);
+    }
+    .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+    .social-links a { 
+      color: var(--text-main); font-size: 1.5rem; transition: 0.3s; 
+    }
+    .social-links a:hover { color: var(--primary); transform: translateY(-3px); }
 
     /* Floating WhatsApp */
-    .whatsapp-float{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      width:68px;
-      height:68px;
-      border-radius:50%;
-      overflow:hidden;
-      z-index:1100;
-      box-shadow: 0 8px 34px rgba(2,6,23,0.6);
-      cursor:pointer;
-      border:3px solid rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, #fff, #fff);
-      transform-origin:center;
-      animation: bounceIn .7s ease forwards;
+    .whatsapp-float {
+      position: fixed; right: 20px; bottom: 20px; width: 60px; height: 60px;
+      background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 100; font-size: 2rem; color: white; text-decoration: none;
+      transition: 0.3s;
     }
-    .whatsapp-float img{
-      width:100%; height:100%; object-fit:cover; display:block;
-    }
-    @keyframes bounceIn {
-      0%{ transform: translateY(0) scale(.96) }
-      30%{ transform: translateY(-18px) scale(1.02) }
-      50%{ transform: translateY(0) scale(1) }
-      70%{ transform: translateY(-8px) scale(1.01) }
-      100%{ transform: translateY(0) scale(1) }
-    }
-    .whatsapp-float.pulse{ animation: pulse 2s infinite; }
-    @keyframes pulse { 0%{ transform: scale(1) } 50%{ transform: scale(1.06) } 100%{ transform: scale(1) } }
+    .whatsapp-float:hover { transform: scale(1.1); }
 
-    /* Tooltip */
-    .wh-tooltip{
-      position:absolute;
-      right:80px;
-      bottom:28px;
-      background: rgba(2,6,23,0.9);
-      color:#e6f2fb;
-      padding:8px 10px;
-      border-radius:8px;
-      font-size:0.95rem;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-      opacity:0;
-      transform: translateY(6px);
-      transition: opacity .18s, transform .18s;
-      pointer-events:none;
-      white-space:nowrap;
-    }
-    .whatsapp-float:hover + .wh-tooltip,
-    .wh-tooltip.show { opacity:1; transform: translateY(0) }
-
-    /* small screens tweak */
-    @media(max-width:480px){
-      .wh-tooltip{ display:none }
-      .container{ padding-bottom:120px }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="site-title">Techariel Web Design Packages</div>
-    <div class="tagline">✨ Affordable, responsive, and professional web design for your brand</div>
-  </header>
 
-  <main class="container">
-    <div class="controls">
-      <div class="toggle" title="Toggle currency">
-        <label style="display:inline-flex;align-items:center;gap:8px;">
-          <input id="currencyCheckbox" type="checkbox" aria-label="Toggle currency (USD/Naira)">
-          <span class="small" style="color:var(--muted)">Show prices in USD</span>
-        </label>
+  <div class="cyber-grid"></div>
+
+  <div class="container">
+    
+    <header>
+      <div class="status-badge">● Available for Hire</div>
+      
+      <h1>Hamza Muhammad <span style="color:var(--primary)">Yahaya</span></h1>
+      
+      <div class="founder-badges">
+        <div class="f-badge">
+          <i class="fas fa-rocket"></i> Founder, TechAriel Digital Corp
+        </div>
+        <div class="f-badge">
+          <i class="fas fa-globe-africa"></i> Founder, Digital Jigawa
+        </div>
       </div>
-    </div>
 
-    <section class="grid" aria-label="Pricing packages">
-      <!-- Basic -->
-      <article class="card" aria-labelledby="basic-title">
-        <h3 id="basic-title">Basic</h3>
-        <div class="price" data-usd="100">$100</div>
-        <ul class="features">
-          <li class="small">✔ Up to 3 pages</li>
-          <li class="small">✔ Functional website</li>
-          <li class="small">✔ Responsive design</li>
-          <li class="small">✔ 1 Revision</li>
-        </ul>
-        <a href="#" class="buy" role="button" aria-label="Order Basic Package" data-package="Basic" data-usd="100">Buy Now</a>
-      </article>
+      <div class="role-title">
+        &lt;Cybersecurity_Pro /&gt; &nbsp; &lt;Web_Developer /&gt;
+      </div>
+      
+      <p class="bio">
+        I am a tech entrepreneur and security specialist. Through <strong>TechAriel</strong>, I secure businesses against cyber threats. 
+        Through <strong>Digital Jigawa</strong>, I drive digital literacy and ecosystem growth. 
+        I specialize in Offensive Security, Network Infrastructure, and Secure Web Development.
+      </p>
+      
+      <a href="#contact" class="btn-hero">Contact Me</a>
+    </header>
 
-      <!-- Standard -->
-      <article class="card" aria-labelledby="std-title">
-        <h3 id="std-title">Standard</h3>
-        <div class="price" data-usd="200">$200</div>
-        <ul class="features">
-          <li class="small">✔ Up to 6 pages</li>
-          <li class="small">✔ Custom asset design</li>
-          <li class="small">✔ Content upload</li>
-          <li class="small">✔ 3 Revisions</li>
-        </ul>
-        <a href="#" class="buy" role="button" aria-label="Order Standard Package" data-package="Standard" data-usd="200">Buy Now</a>
-      </article>
-
-      <!-- Premium -->
-      <article class="card" aria-labelledby="premium-title">
-        <h3 id="premium-title">Premium</h3>
-        <div class="price" data-usd="400">$400</div>
-        <ul class="features">
-          <li class="small">✔ Up to 12 pages</li>
-          <li class="small">✔ Plugins/extensions installation</li>
-          <li class="small">✔ Custom asset design</li>
-          <li class="small">✔ Unlimited revisions</li>
-        </ul>
-        <a href="#" class="buy" role="button" aria-label="Order Premium Package" data-package="Premium" data-usd="400">Buy Now</a>
-      </article>
+    <section class="skills-section">
+      <div class="section-header">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-user-secret skill-icon"></i>
+          <span class="skill-name">Ethical Hacking</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-shield-virus skill-icon"></i>
+          <span class="skill-name">Penetration Testing</span>
+        </div>
+        <div class="skill-card">
+          <i class="brands fa-linux skill-icon"></i>
+          <span class="skill-name">Kali Linux</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-network-wired skill-icon"></i>
+          <span class="skill-name">Network Security</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-lock skill-icon"></i>
+          <span class="skill-name">Cryptography</span>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-php skill-icon"></i>
+          <span class="skill-name">Secure PHP</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Extras -->
-    <section class="extras" aria-label="Extra services">
-      <h4>Extra Services</h4>
-      <ul>
-        <li>
-          <span>Additional page</span>
-          <span style="display:flex;gap:10px;align-items:center">
-            <strong class="extra-price" data-usd="20">$20</strong>
-            <a href="#" class="order-extra" data-extra="Additional page" data-usd="20">Order</a>
-          </span>
-        </li>
-
-        <li>
-          <span>Extra fast delivery (2 days)</span>
-          <span style="display:flex;gap:10px;align-items:center">
-            <strong class="extra-price" data-usd="50">$50</strong>
-            <a href="#" class="order-extra" data-extra="Extra fast delivery (2 days)" data-usd="50">Order</a>
-          </span>
-        </li>
-
-        <li>
-          <span>Additional plugin installation</span>
-          <span style="display:flex;gap:10px;align-items:center">
-            <strong class="extra-price" data-usd="30">$30</strong>
-            <a href="#" class="order-extra" data-extra="Additional plugin installation" data-usd="30">Order</a>
-          </span>
-        </li>
-
-        <li>
-          <span>Extra revision</span>
-          <span style="display:flex;gap:10px;align-items:center">
-            <strong class="extra-price" data-usd="10">$10</strong>
-            <a href="#" class="order-extra" data-extra="Extra revision" data-usd="10">Order</a>
-          </span>
-        </li>
-      </ul>
+    <section class="skills-section">
+      <div class="section-header">
+        <h2 class="section-title">Services @ TechAriel</h2>
+        <div class="line"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="s-icon"><i class="fas fa-bug"></i></div>
+          <h3>Vulnerability Assessment</h3>
+          <p>Scanning your systems for SQL Injection (SQLi), XSS, and weak configurations before attackers find them.</p>
+        </div>
+        <div class="service-card">
+          <div class="s-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Secure Web Development</h3>
+          <p>Building responsive websites with security baked in from the start. Secure authentication and data protection.</p>
+        </div>
+        <div class="service-card">
+          <div class="s-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Cybersecurity Training</h3>
+          <p>Practical training on ethical hacking, Burp Suite usage, and system hardening for individuals and teams.</p>
+        </div>
+        <div class="service-card">
+          <div class="s-icon"><i class="fas fa-server"></i></div>
+          <h3>Network Infrastructure</h3>
+          <p>Complete LAN installation and configuration for schools and offices (Switches, Routers, Cabling).</p>
+        </div>
+      </div>
     </section>
 
-    <footer>© 2025 Techariel. All rights reserved.</footer>
-  </main>
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Case Studies</h2>
+        <div class="line"></div>
+      </div>
 
-  <!-- Floating WhatsApp button & tooltip -->
-  <!-- Replace 'your-profile.jpg' with your real profile image path or URL -->
-  <a id="whatsappFloat" class="whatsapp-float" href="#" aria-label="Chat with Techariel on WhatsApp" title="Chat with me on WhatsApp">
-    <img id="whImg" src="profile.jpeg" alt="WhatsApp profile">
+      <div class="project-card">
+        <div class="p-image" style="background-image: linear-gradient(135deg, #0284c7, #0f172a);">
+          <div class="p-overlay"></div>
+          <div style="position:absolute; bottom:20px; left:20px; font-size:3rem; opacity:0.3; color:white;">
+            <i class="fas fa-globe-africa"></i>
+          </div>
+        </div>
+        <div class="p-details">
+          <div class="p-tag">Community & Tech Ecosystem</div>
+          <h3>Digital Jigawa Platform</h3>
+          <p>Founded and developed the Digital Jigawa initiative. A platform designed to modernize the state's digital presence, connect talents, and promote digital literacy across the region.</p>
+          <div class="tech-stack">
+            <span class="tech">Founder</span>
+            <span class="tech">React</span>
+            <span class="tech">Community Building</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-image" style="background-image: linear-gradient(135deg, #064e3b, #0f172a);">
+          <div class="p-overlay"></div>
+          <div style="position:absolute; bottom:20px; left:20px; font-size:3rem; opacity:0.3; color:white;">
+            <i class="fas fa-network-wired"></i>
+          </div>
+        </div>
+        <div class="p-details">
+          <div class="p-tag">Infrastructure & Hardware</div>
+          <h3>Government School LAN Installation</h3>
+          <p>Designed and deployed a complete Local Area Network (LAN) infrastructure for government secondary schools. Involved structural cabling, router configuration, and firewall setup.</p>
+          <div class="tech-stack">
+            <span class="tech">Cisco</span>
+            <span class="tech">MikroTik</span>
+            <span class="tech">Network Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="p-image" style="background-image: linear-gradient(135deg, #1e3a8a, #0f172a);">
+          <div class="p-overlay"></div>
+          <div style="position:absolute; bottom:20px; left:20px; font-size:3rem; opacity:0.3; color:white;">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+        </div>
+        <div class="p-details">
+          <div class="p-tag">Web Application</div>
+          <h3>Secure Result Management System</h3>
+          <p>Developed a full-stack result management system for Mustibrah Model School. Features role-based access control (RBAC), encrypted password storage, and automated fee generation.</p>
+          <div class="tech-stack">
+            <span class="tech">PHP 8</span>
+            <span class="tech">MySQL</span>
+            <span class="tech">Secure Auth</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer id="contact">
+      <h2 style="color:white; font-size:2.5rem; margin-bottom:10px;">Let's Secure Your Digital Assets</h2>
+      <p style="margin-bottom:40px;">Open for consulting, penetration testing, and web development projects.</p>
+      
+      <div class="social-links">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      
+      <p>&copy; 2026 Hamza Muhammad Yahaya. All rights reserved.<br>Founder, TechAriel Digital Corporation & Digital Jigawa.</p>
+    </footer>
+
+  </div>
+
+  <a href="https://wa.me/2349034342402" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
   </a>
-  <div class="wh-tooltip" id="whTooltip">Chat with me on WhatsApp</div>
 
-  <!-- Pop sound -->
-  <audio id="popSound" preload="auto">
-    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    // Config
-    const WA_NUMBER = "2349034342402";          // your WhatsApp (no +)
-    const EXCHANGE_RATE = 1500;                 // 1 USD = 1500 NGN
-    const currencyCheckbox = document.getElementById('currencyCheckbox');
-
-    // Elements
-    const priceEls = document.querySelectorAll('.price');
-    const extraPriceEls = document.querySelectorAll('.extra-price');
-    const buyButtons = document.querySelectorAll('.buy');
-    const orderExtraBtns = document.querySelectorAll('.order-extra');
-    const whatsappFloat = document.getElementById('whatsappFloat');
-    const tooltip = document.getElementById('whTooltip');
-    const popSound = document.getElementById('popSound');
-
-    // Current currency state
-    // if checkbox checked -> USD shown, else NGN shown
-    function updateAllPrices() {
-      const isUSD = currencyCheckbox.checked;
-      priceEls.forEach(el => {
-        const usd = parseFloat(el.dataset.usd);
-        if (isUSD) {
-          el.textContent = `$${usd}`;
-        } else {
-          el.textContent = `₦${(usd * EXCHANGE_RATE).toLocaleString()}`;
-        }
-      });
-      extraPriceEls.forEach(el => {
-        const usd = parseFloat(el.dataset.usd);
-        if (isUSD) {
-          el.textContent = `$${usd}`;
-        } else {
-          el.textContent = `₦${(usd * EXCHANGE_RATE).toLocaleString()}`;
-        }
-      });
-    }
-
-    // Init
-    updateAllPrices();
-
-    // Toggle listener
-    currencyCheckbox.addEventListener('change', updateAllPrices);
-
-    // Helper to open WhatsApp with message
-    function openWhatsApp(message) {
-      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    }
-
-    // Buy Now button handlers
-    buyButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const pkg = btn.dataset.package;
-        const usd = parseFloat(btn.dataset.usd);
-        const isUSD = currencyCheckbox.checked;
-        let message;
-        if (isUSD) {
-          message = `Hello, I'm interested in your ${pkg} Package - $${usd}`;
-        } else {
-          const ngn = usd * EXCHANGE_RATE;
-          message = `Hello, I'm interested in your ${pkg} Package - ₦${ngn.toLocaleString()}`;
-        }
-        // play pop sound
-        popSound.currentTime = 0;
-        popSound.play().catch(()=>{});
-        openWhatsApp(message);
-      });
-    });
-
-    // Extra order buttons
-    orderExtraBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const extraName = btn.dataset.extra;
-        const usd = parseFloat(btn.dataset.usd);
-        const isUSD = currencyCheckbox.checked;
-        let message;
-        if (isUSD) {
-          message = `Hello, I want to order: ${extraName} - $${usd}`;
-        } else {
-          const ngn = usd * EXCHANGE_RATE;
-          message = `Hello, I want to order: ${extraName} - ₦${ngn.toLocaleString()}`;
-        }
-        popSound.currentTime = 0;
-        popSound.play().catch(()=>{});
-        openWhatsApp(message);
-      });
-    });
-
-    // Floating WhatsApp behavior:
-    // - bounce animation (CSS) already runs on load,
-    // - after the bounce ends, add pulse class
-    // - clicking plays sound and opens quick inquiry message
-    whatsappFloat.addEventListener('animationend', (ev) => {
-      // After the initial bounce, add pulsing (but not during bounce)
-      whatsappFloat.classList.add('pulse');
-      // show tooltip briefly on first load
-      setTimeout(() => { tooltip.classList.add('show'); setTimeout(()=>tooltip.classList.remove('show'), 2200); }, 900);
-    });
-
-    whatsappFloat.addEventListener('mouseenter', () => tooltip.classList.add('show'));
-    whatsappFloat.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
-
-    whatsappFloat.addEventListener('click', (e) => {
-      e.preventDefault();
-      popSound.currentTime = 0;
-      popSound.play().catch(()=>{});
-      // Default inquiry message (currency aware)
-      const isUSD = currencyCheckbox.checked;
-      let msg = isUSD
-        ? "Hello, I have an inquiry about your web design packages (prices in USD)."
-        : "Hello, I have an inquiry about your web design packages (prices in Naira).";
-      openWhatsApp(msg);
-    });
-
-    // Fallback: if user didn't replace profile image, show default WhatsApp icon
-    const whImg = document.getElementById('whImg');
-    whImg.onerror = function() {
-      // simple inline svg data URI of WhatsApp icon as fallback
-      this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%2325D366" d="M380.9 97.1C339-6 267.7-23.9 200.1 2.8 107.5 38.9 53.9 132.3 53.9 229.9 53.9 284.7 77.6 333.2 120 367.6L72.5 448l87.2-45.1c31 16.9 66.3 25.9 102.4 25.9 92.6 0 146.2-93.4 146.2-190.9 0-27.2-4.2-52.2-12.4-75.9z"/></svg>';
-    };
-
-    // Ensure prices show correct format on load (for some browsers)
-    window.addEventListener('load', updateAllPrices);
-  </script>
 </body>
 </html>
